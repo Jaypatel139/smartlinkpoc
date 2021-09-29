@@ -1,3 +1,5 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
   mode: "development",
   entry: "./src/components/index.js",
@@ -5,6 +7,9 @@ module.exports = {
     filename: "index.js",
     libraryTarget: "commonjs2", //This one the most important line, others things will remain same
   },
+  plugins: [
+    new MiniCssExtractPlugin(),
+  ],
   module: {
     rules: [
       {
@@ -16,12 +21,13 @@ module.exports = {
         test: /\.[sac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          "style-loader",
+          MiniCssExtractPlugin.loader,
           // Translates CSS into CommonJS
           "css-loader",
           // Compiles Sass to CSS
           "sass-loader",
         ],
+        include: /\.module\.css$/,
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
