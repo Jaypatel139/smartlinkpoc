@@ -8,7 +8,6 @@ export default class Smartlink extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      preview: "PreviewSM",
       error: "",
       urlData: null,
     };
@@ -19,10 +18,10 @@ export default class Smartlink extends Component {
     switch (preview) {
       case "PreviewXS":
         return <PreviewXS styles={styles} documentsData={urlData} />;
-      case "PreviewSM":
-        return <PreviewSM styles={styles} documentsData={urlData} />;
-      default:
+      case "PreviewL":
         return <PreviewL styles={styles} documentsData={urlData} />;
+      default:
+        return <PreviewSM styles={styles} documentsData={urlData} />;
     }
   };
 
@@ -31,7 +30,7 @@ export default class Smartlink extends Component {
   }
 
   getUrlMetaData = () => {
-    var url = "https://projects.invisionbeta.com/share/ES9GV36W#/screens";
+    let { url } = this.props;
     if (url && url.length > 1) {
       let domain = new URL(url);
 
@@ -52,8 +51,6 @@ export default class Smartlink extends Component {
           (data) => {
             this.setState({
               urlData: data,
-            });
-            this.setState({
               error: undefined,
             });
           },
@@ -67,7 +64,8 @@ export default class Smartlink extends Component {
   };
 
   render() {
-    const { preview, error, url, urlData } = this.state;
+    const { error, urlData } = this.state;
+    const { preview } = this.props;
     return (
       <div>
         <div className={styles.maindiv}>
@@ -83,69 +81,3 @@ export default class Smartlink extends Component {
     );
   }
 }
-
-// const Smartlink = (props) => {
-//   const [preview, setPreview] = useState(props.preview);
-//   const [error, setError] = useState();
-//   const [url, setUrl] = useState(props.url || "");
-//   const [urlData, setUrlData] = useState();
-//   const renderPreview = (preview, urlData) => {
-//     switch (preview) {
-//       case "PreviewXS":
-//         return <PreviewXS url={url} documentsData={urlData} />;
-//       case "PreviewSM":
-//         return <PreviewSM url={url} documentsData={urlData} />;
-//       default:
-//         return <PreviewL url={url} documentsData={urlData} />;
-//     }
-//   };
-
-//   useEffect(() => {
-//     getUrlMetaData();
-//   }, [url]);
-
-//   const getUrlMetaData = useCallback(() => {
-//     if (url && url.length > 1) {
-//       let domain = new URL(url);
-
-//       //Setting the host for shortend urls with the origin https://invis.io
-//       if (
-//         domain.hostname === "invis.io" ||
-//         domain.hostname === "www.invis.io"
-//       ) {
-//         domain.hostname = "projects.invisionapp.com";
-//       }
-//       fetch(
-//         `https://${
-//           domain.hostname
-//         }/meta-bff/share?shareurl=${encodeURIComponent(url)}`
-//       )
-//         .then((res) => res.json())
-//         .then(
-//           (data) => {
-//             setUrlData(data);
-//             setError(undefined);
-//           },
-//           (err) => {
-//             setError(err);
-//           }
-//         );
-//     }
-//   });
-
-//   return (
-//     <div>
-//       <div className={styles.maindiv}>
-//         {error && (
-//           <div>
-//             <p>Error occured:</p>
-//             <pre>{error.toString()}</pre>
-//           </div>
-//         )}
-//         {!error && renderPreview(preview, urlData)}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Smartlink;
