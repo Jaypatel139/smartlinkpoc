@@ -1,0 +1,108 @@
+.root {
+  display: inline-grid;
+}
+.previewXS {
+  background-color: rgb(248, 248, 248);
+  height: auto;
+  width: fit-content;
+
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: rgb(18, 18, 199);
+
+  align-items: center;
+  max-width: 100%;
+  border: 1px solid darkgrey;
+  border-radius: 4px;
+  padding: 2px;
+  box-shadow: 1px 1px 2px 0px #969696;
+  -webkit-box-shadow: 1px 1px 2px 0px #969696;
+}
+.previewXS > img {
+  height: 22px;
+  border: 0;
+  width: 22px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+.previewXS > a {
+  text-decoration: none;
+}
+
+.previewXS > a:visited,
+.previewXS > a:hover {
+  color: rgb(18, 18, 199);
+}
+
+.previewSM {
+  cursor: pointer;
+  display: flex;
+  color: rgb(18, 18, 199);
+
+  background-color: rgb(248, 248, 248);
+  border: 1px solid #e1dddd;
+  border-radius: 7px;
+  width: 400px;
+}
+.card {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  transition: 0.3s;
+  color: black;
+  width: 400px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.card > img {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  height: 100px;
+  width: 100px;
+}
+
+.container {
+  padding: 2px 16px;
+  width: 100%;
+}
+.input {
+  width: 700px;
+  height: 390px;
+  border: 1px solid #999999;
+}
+.maindiv {
+  display: inline-grid;
+}
+
+form {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.dd {
+  margin-bottom: 5px;
+}
+
+h4 {
+  margin: 0;
+}
+p {
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+
+.mycode {
+  display: block;
+  padding: 3px 3px 2px;
+  font-size: 14px;
+  line-height: 20px;
+  width: 100%;
+  background-color: #333;
+  color: #f7f7f7;
+}
