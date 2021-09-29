@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import styles from "./smartpreview.module.css";
 import PreviewL from "./previews/PreviewL";
 import PreviewSM from "./previews/PreviewSM";
 import PreviewXS from "./previews/PreviewXS";
-import styles from "./previews/smartpreview.module.css";
 
 export default class Smartlink extends Component {
   constructor(props) {
@@ -18,11 +18,11 @@ export default class Smartlink extends Component {
   renderPreview = (preview, urlData) => {
     switch (preview) {
       case "PreviewXS":
-        return <PreviewXS documentsData={urlData} />;
+        return <PreviewXS styles={styles} documentsData={urlData} />;
       case "PreviewSM":
-        return <PreviewSM documentsData={urlData} />;
+        return <PreviewSM styles={styles} documentsData={urlData} />;
       default:
-        return <PreviewL documentsData={urlData} />;
+        return <PreviewL styles={styles} documentsData={urlData} />;
     }
   };
 

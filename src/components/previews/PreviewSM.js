@@ -1,7 +1,6 @@
 import React from "react";
-import styles from "./smartpreview.module.css";
 
-const PreviewSM = ({ documentsData, url }) => {
+const PreviewSM = ({ styles,documentsData, url }) => {
   if (!documentsData) {
     return "";
   }

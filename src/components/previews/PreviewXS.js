@@ -1,8 +1,7 @@
 import React from "react";
 import logo from "../../freehand-by-invision.png";
-import styles from "./smartpreview.module.css";
 
-const PreviewXS = ({ documentsData, url }) => {
+const PreviewXS = ({ styles,documentsData, url }) => {
   if (!documentsData) {
     return "";
   }
